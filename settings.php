@@ -223,8 +223,8 @@ function addons_html() {
 
 function addon_html($addon) {
   $id = $addon['id'];
-  $active = "addon_${id}_active";
-  $remove = "addon_${id}_delete";
+  $active = 'addon_' . $id . '_active';
+  $remove = 'addon_' . $id . '_delete';
   $active_checked = is_addon_active($id) ? 'checked' : '';
   $group = is_multisite() ? "revisionize_network_settings" : "revisionize_settings";
   ?>
@@ -319,10 +319,10 @@ function install_addon($filename) {
 
 function uninstall_addon($id, $file) {
   remove_setting(array(
-    "addon_${id}_active",
-    "addon_${id}_delete",
-    "_addon_${id}_active_set",
-    "_addon_${id}_delete_set",
+    'addon_' . $id . '_active',
+    'addon_' . $id . '_delete',
+    '_addon_' . $id . '_active_set',
+    '_addon_' . $id . '_delete_set',
   ), is_multisite());
   
   unlink($file);
